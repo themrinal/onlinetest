@@ -1,0 +1,100 @@
+<h3>Create Test</h3>
+<hr color="0275dB">
+
+<div class="row">
+  <div class="col-md-12">
+    <h5>Question List</h5>
+    <table id="questionList" class="table table-responsive table-hover">
+      <thead>
+        <tr style="background-color: gainsboro;">
+          <th>S/N</th>
+          <th>Question</th>
+          <th>Answer</th>
+          <th>Option A</th>
+          <th>Option B</th>
+          <th>Option C</th>
+          <th>Option D</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each qData}}
+        <tr>
+          <td>{{this.sn}}</td>
+          <td>{{this.question}}</td>
+          <td>{{this.answer}}</td>
+          <td>{{this.option_A}}</td>
+          <td>{{this.option_B}}</td>
+          <td>{{this.option_C}}</td>
+          <td>{{this.option_D}}</td>
+          <td style="text-align: center;">
+            <a href="/edit/{{this._id}}"><i class="fa fa-pencil"></i></a>
+            <a href="/delete/{{this._id}}" onclick="return confirm('Are you sure to delete the record ?')"><i class="fa fa-remove" style="color: red;"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h5>{{viewTitle}}</h5>
+<form action="/save" method="post" autocomplete="off">
+<input type="hidden" name="_id" value="{{editData._id}}">
+  <div class="input-group mb-3"> 
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Serial No</span>
+    </div>
+    <input type="number" class="form-control" name="sn" aria-describedby="basic-addon3" value="{{sn}}">
+  </div>
+
+  <div class="input-group mb-3"> 
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Question</span>
+    </div>
+    <input type="text" class="form-control" name="question" aria-describedby="basic-addon3" value="{{editData.question}}" autofocus>
+  </div>
+
+  <div class="input-group mb-3"> 
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Answer</span>
+    </div>
+    <input type="text" class="form-control" name="answer" aria-describedby="basic-addon3" value="{{editData.answer}}">
+  </div>
+
+  <div class="input-group mb-3"> 
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Option A</span>
+    </div>
+    <input type="text" class="form-control" name="optionA" aria-describedby="basic-addon3" value="{{editData.option_A}}">
+  </div>
+
+  <div class="input-group mb-3"> 
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Option B</span>
+    </div>
+    <input type="text" class="form-control" name="optionB" aria-describedby="basic-addon3" value="{{editData.option_B}}">
+  </div>
+
+  <div class="input-group mb-3"> 
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Option C</span>
+    </div>
+    <input type="text" class="form-control" name="optionC" aria-describedby="basic-addon3" value="{{editData.option_C}}">
+  </div>
+
+  <div class="input-group mb-3"> 
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Option D</span>
+    </div>
+    <input type="text" class="form-control" name="optionD" aria-describedby="basic-addon3" value="{{editData.option_D}}">
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-primary"><i class="fa fa-database"></i> Save This</button>
+    </div>
+  </div>
+</form>
+
+
