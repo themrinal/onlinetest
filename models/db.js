@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 var router = express.Router();
 
-const URI = "mongodb+srv://mrinaldas:Mrinal2020@cluster0.dawn7.mongodb.net/TestDB?retryWrites=true&w=majority";
+const URI = "mongodb+srv://<username>:<password>@cluster0.dawn7.mongodb.net/<databasename>?retryWrites=true&w=majority";
 
 mongoose.connect(URI, {useNewUrlParser : true, useUnifiedTopology : true, useFindAndModify : false}, (err) => {
   if(!err) {
